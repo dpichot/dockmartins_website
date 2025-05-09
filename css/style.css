@@ -563,6 +563,10 @@ a {
     border-color: #F26F6C;
 }
 
+.carousel-controls .thumbnails img.active {
+    border-color: #F26F6C;
+}
+
 .carousel-controls button {
     background: rgba(0, 0, 0, 0.7);
     color: white;

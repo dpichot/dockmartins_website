@@ -139,6 +139,23 @@
         width: 100% !important;
     }
 
+    .carousel-controls .thumbnails {
+        padding: 10px 0 !important;
+    }
+
+    .carousel-controls .thumbnails img:first-child {
+        margin-left: 15px;
+    }
+
+    .carousel-controls .thumbnails img:last-child {
+        margin-right: 15px;
+    }
+
+    .carousel-controls .thumbnails img:hover {
+        transform: scale(1) !important;
+        opacity: 1 !important;
+    }
+
     footer p {
         font-size: 18px !important;
     }

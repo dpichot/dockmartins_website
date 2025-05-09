@@ -226,9 +226,18 @@ function setupVideoCarrousel() {
     let currentIndex = 0;
 
     function updateVideo(index) {
+        // Retirer la classe .active de toutes les miniatures
+        thumbnails.forEach((thumbnail) => thumbnail.classList.remove('active'));
+
+        // Ajouter la classe .active à la miniature sélectionnée
         const selectedThumbnail = thumbnails[index];
+        selectedThumbnail.classList.add('active');
+
+        // Mettre à jour la source de la vidéo
         videoPlayer.src = selectedThumbnail.getAttribute('data-video');
         currentIndex = index;
+
+
     }
 
     thumbnails.forEach((thumbnail, index) => {
