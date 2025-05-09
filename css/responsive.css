@@ -1,0 +1,236 @@
+/* Responsive pour tablettes (écrans entre 768px et 1024px) */
+@media (max-width: 1024px) {
+    .section {
+        padding-left: 10% !important;
+        padding-right: 10% !important;
+    }
+
+    #medias-logo,
+    #medias-logo-r {
+        height: 100px;
+    }
+}
+
+/* Responsive pour smartphones (écrans entre 480px et 768px) */
+@media (max-width: 768px) {
+    p {
+        font-size: 20px !important;
+    }
+
+    .section {
+        padding-left: 4% !important;
+        padding-right: 4% !important;
+    }
+
+    .hero-text {
+        font-size: 28px !important;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .hero-text .red-texte {
+        font-size: 28px !important;
+    }
+
+    #hero-logo {
+        height: auto !important;
+        width: 95% !important;
+        padding-bottom: 20px !important;
+        transform: scale(1.1) !important;
+    }
+
+    #medias-logo,
+    #medias-logo-r {
+        height: 70px !important;
+    }
+
+    h2 {
+        font-size: 30px !important;
+    }
+
+    h3 {
+        margin: 15px 0 !important;
+        font-size: 35px !important;
+    }
+
+    .carousel-controls {
+        padding-top: 10px !important;
+    }
+
+    #discover-button {
+        padding: 15px 25px !important;
+        font-size: 20px !important;
+    }
+
+    .souris {
+        height: 120px !important;
+        right: -10px !important;
+        top: -150px !important;
+    }
+
+    .albums {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        height: 300px;
+    }
+
+    .album {
+        position: absolute;
+        transition: all 0.5s ease-in-out;
+        opacity: 0;
+        transform: scale(0.8) translateX(100%);
+        z-index: 0;
+    }
+
+    .album.active {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+        z-index: 2;
+    }
+
+    .album.next {
+        opacity: 0.5;
+        transform: scale(0.8) translateX(100%);
+        z-index: 1;
+    }
+
+    .album.prev {
+        opacity: 0.5;
+        transform: scale(0.8) translateX(-100%);
+        z-index: 1;
+    }
+
+    .album img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .album p {
+        text-align: center;
+        margin-top: 10px;
+        font-family: 'Metal Mania', cursive;
+        font-size: 18px;
+        color: #000;
+    }
+
+    .hippo {
+        height: auto !important;
+        width: 85vw !important;
+    }
+
+    .rec-container {
+        right: 15px !important;
+        top: 180px !important;
+        font-size: 15px !important;
+    }
+
+    .rec-dot {
+        width: 15px !important;
+        height: 15px !important;
+    }
+
+    .carousel-controls {
+        width: 100% !important;
+    }
+
+    footer p {
+        font-size: 18px !important;
+    }
+
+    .menu {
+        display: none !important;
+    }
+
+    .hamburger {
+        display: flex !important;
+    }
+
+    .header-logo {
+        height: 40px !important;
+        top: -18px !important;
+        left: 5px !important;
+    }
+
+    .navbar {
+        height: 35px !important;
+    }
+
+    #main-header.visible::after {
+        top: 24px !important;
+    }
+
+    .youtube-link {
+        display: none !important;
+    }
+
+    .youtube-link i {
+        display: block !important;
+        position: initial !important;
+    }
+
+    .drawer-menu>div {
+        display: flex !important;
+        justify-content: start !important;
+        align-items: center !important;
+        gap: 10px !important;
+        font-size: 25px !important;
+        margin-top: 25px !important;
+    }
+
+    .youtube-link-drawer {
+        display: block !important;
+    }
+
+    .youtube-link-drawer i {
+        display: block !important;
+        position: initial !important;
+        font-size: 35px !important;
+    }
+
+    #main-header ul {
+        flex-direction: column !important;
+        margin-top: 25px !important;
+        gap: 20px !important;
+    }
+
+    #main-header li a {
+        font-size: 35px !important;
+    }
+
+    #artists h2 {
+        padding: 0 !important;
+        margin-top: 8vh !important;
+        font-size: 45px !important;
+    }
+
+    #artists::before {
+        bottom: -10px !important;
+    }
+
+    .video-description {
+        padding-bottom: 0 !important;
+    }
+
+    #medias .next,
+    #medias .prev {
+        display: none !important;
+    }
+
+    #contact h2 {
+        margin-top: 0 !important;
+    }
+
+    #contact::after {
+        top: -10px !important;
+    }
+
+    footer::before {
+        top: -30px !important;
+    }
+}
