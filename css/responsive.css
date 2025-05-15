@@ -13,6 +13,8 @@
 
 /* Responsive pour smartphones (écrans entre 480px et 768px) */
 @media (max-width: 768px) {
+    /* // | GENERAL */
+
     p {
         font-size: 20px !important;
     }
@@ -21,6 +23,22 @@
         padding-left: 4% !important;
         padding-right: 4% !important;
     }
+
+    h2 {
+        font-size: 30px !important;
+    }
+
+    h3 {
+        margin: 15px 0 !important;
+        font-size: 35px !important;
+    }
+
+    .red-texte {
+        font-size: 22px !important;
+    }
+
+
+    /* // | HOME */
 
     .hero-text {
         font-size: 28px !important;
@@ -44,23 +62,14 @@
         height: 70px !important;
     }
 
-    h2 {
-        font-size: 30px !important;
-    }
 
-    h3 {
-        margin: 15px 0 !important;
-        font-size: 35px !important;
-    }
-
-    .carousel-controls {
-        padding-top: 10px !important;
-    }
 
     #discover-button {
         padding: 15px 25px !important;
         font-size: 20px !important;
     }
+
+    /* // | ABOUT */
 
     .souris {
         height: 120px !important;
@@ -124,41 +133,7 @@
         width: 85vw !important;
     }
 
-    .rec-container {
-        right: 15px !important;
-        top: 180px !important;
-        font-size: 15px !important;
-    }
-
-    .rec-dot {
-        width: 15px !important;
-        height: 15px !important;
-    }
-
-    .carousel-controls {
-        width: 100% !important;
-    }
-
-    .carousel-controls .thumbnails {
-        padding: 10px 0 !important;
-    }
-
-    .carousel-controls .thumbnails img:first-child {
-        margin-left: 15px;
-    }
-
-    .carousel-controls .thumbnails img:last-child {
-        margin-right: 15px;
-    }
-
-    .carousel-controls .thumbnails img:hover {
-        transform: scale(1) !important;
-        opacity: 1 !important;
-    }
-
-    footer p {
-        font-size: 18px !important;
-    }
+    /* // | HEADER */
 
     .menu {
         display: none !important;
@@ -220,6 +195,8 @@
         font-size: 35px !important;
     }
 
+    /* // | ARTISTS */
+
     #artists h2 {
         padding: 0 !important;
         margin-top: 8vh !important;
@@ -230,6 +207,72 @@
         bottom: -10px !important;
     }
 
+    .artists-list {
+        gap: 50px !important;
+    }
+
+    .artist {
+        flex-direction: column !important;
+    }
+
+    .artist .artist-name {
+        padding: 0 15px !important;
+    }
+
+    .artist .artist-image img {
+        width: 95vw !important;
+        height: 500px !important;
+    }
+
+    .artist .artist-info {
+        justify-content: start !important;
+        align-items: start !important;
+    }
+
+    .artist .artist-info .artist-name span {
+        margin: 0 !important;
+        font-size: 65px !important;
+    }
+
+    .artist .artist-info .description {
+        text-align: left !important;
+        padding: 10px !important;
+    }
+
+    .artist .artist-info .description b {
+        font-size: 25px !important;
+    }
+
+    .artist:nth-child(1) .artist-info {
+        top: 380px !important;
+    }
+
+    .artist:nth-child(2) .artist-image {
+        top: 140px !important;
+    }
+
+    .artist:nth-child(2) .artist-info {
+        top: 950px !important;
+    }
+
+    .artist:nth-child(3) .artist-info {
+        top: 540px !important;
+    }
+
+    .artist:nth-child(4) .artist-image {
+        top: 245px !important;
+    }
+
+    .artist:nth-child(4) .artist-info {
+        top: 1140px !important;
+    }
+
+    .artist:nth-child(5) .artist-info {
+        top: 720px !important;
+    }
+
+    /* // | MEDIAS */
+
     .video-description {
         padding-bottom: 0 !important;
     }
@@ -239,6 +282,66 @@
         display: none !important;
     }
 
+    .rec-container {
+        right: 15px !important;
+        top: 180px !important;
+        font-size: 15px !important;
+    }
+
+    .rec-dot {
+        width: 15px !important;
+        height: 15px !important;
+    }
+
+
+    .carousel-controls {
+        padding-top: 10px !important;
+        width: 100% !important;
+    }
+
+
+    .carousel-controls .thumbnails .thumbnail-container {
+        position: relative;
+    }
+
+    .carousel-controls .thumbnails {
+        padding: 0 !important;
+        flex-direction: column !important;
+        max-height: 62vh !important;
+        background: #191919 !important;
+        gap: 0 !important;
+        width: 100vw !important;
+    }
+
+    .carousel-controls .thumbnails img {
+        width: 98vw !important;
+        height: calc(100vw * 9 / 16) !important;
+    }
+
+    .carousel-controls .thumbnails img:hover {
+        transform: scale(1) !important;
+        opacity: 1 !important;
+    }
+
+    .video-title {
+        display: block !important;
+        font-size: 16px !important;
+        margin: 0 !important;
+        padding: 15px 10px !important;
+        color: white !important;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.5);
+        width: calc(100% - 29px);
+        top: 0px;
+        margin: 2px !important;
+    }
+
+    img.active+.video-title {
+        border-radius: 5px;
+    }
+
+    /* // | CONTACT */
+
     #contact h2 {
         margin-top: 0 !important;
     }
@@ -247,7 +350,15 @@
         top: -10px !important;
     }
 
+    /* // | FOOTER */
+
     footer::before {
         top: -30px !important;
     }
+
+
+    footer p {
+        font-size: 18px !important;
+    }
+
 }

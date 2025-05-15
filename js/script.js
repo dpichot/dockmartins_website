@@ -255,14 +255,51 @@ function setupVideoCarrousel() {
     });
 }
 
+function setupParallaxOnArtistImages() {
+    const artistImages = document.querySelectorAll('.artist-image');
+    const artistInfo = document.querySelectorAll('.artist-info');
+
+    function updateParallax() {
+        const isMobile = window.innerWidth <= 768;
+        artistImages.forEach((img) => {
+            const offset = window.scrollY * 0.1; // Ajustez le facteur pour un effet plus ou moins rapide
+            img.style.transform = `translateY(-${offset}px)`;
+        });
+        artistInfo.forEach((img) => {
+            const offset = window.scrollY * 0.1; // Ajustez le facteur pour un effet plus ou moins rapide
+            if (isMobile) {
+                img.style.transform = `translateY(-${offset}px)`; // Offset négatif supplémentaire sur mobile
+            } else {
+                img.style.transform = `translateY(${offset}px)`; // Comportement normal sur desktop
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateParallax);
+}
+
+function setupParallaxVideo() {
+    const video = document.querySelector('.background-video');
+
+    function updateParallax() {
+        const scrollPosition = window.scrollY;
+        const offset = scrollPosition * 0.8; // Ajustez le facteur pour un effet plus ou moins rapide
+        video.style.transform = `translateY(${offset}px)`;
+    }
+
+    window.addEventListener('scroll', updateParallax);
+}
+
 // Initialize all features
 function init() {
-    setupArtistScrolling();
+    // setupArtistScrolling();
     setupHeaderVisibility();
     setupLogoTransition();
     setupDrawerMenu();
     setupAlbumCarousel();
     setupVideoCarrousel();
+    setupParallaxOnArtistImages();
+    setupParallaxVideo();
 }
 
 document.addEventListener('DOMContentLoaded', init);
