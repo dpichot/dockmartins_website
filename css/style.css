@@ -98,6 +98,11 @@ a {
     font-size: 30px;
 }
 
+.youtube-link:hover {
+    color: red;
+}
+
+
 /* // | HOME */
 
 .hero {
@@ -584,15 +589,31 @@ a {
 }
 
 #video-player {
-    width: 100vw;
-    height: calc(100vw * 9 / 16);
+    width: 65vw;
+    height: calc(65vw * 9 / 16);
     background-color: #000;
     border: none;
+    box-shadow: 0 0 230px 100px rgb(59 0 0 / 70%);
+    animation: shadow-pulse 2s infinite ease-in-out;
+}
+
+@keyframes shadow-pulse {
+    0% {
+        box-shadow: 0 0 230px 100px rgb(59 0 0 / 70%);
+    }
+
+    50% {
+        box-shadow: 0 0 260px 120px rgb(59 0 0 / 90%);
+    }
+
+    100% {
+        box-shadow: 0 0 230px 100px rgb(59 0 0 / 70%);
+    }
 }
 
 .carousel-controls {
     bottom: 10%;
-    width: 90%;
+    width: 65vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -650,21 +671,67 @@ a {
     align-self: center;
     padding-top: 75px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
-.video-description>a>div {
+.video-description .youtube-link {
     margin-top: 15px;
     font-size: 20px;
     transition: color 0.3s;
-}
-
-.video-description>a>div:hover {
-    color: red;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
 .video-title {
     display: none;
+}
 
+
+
+/* Style pour le conteneur */
+.rec-container {
+    position: absolute;
+    right: calc(((100vw - 65vw) / 2) + 5px);
+    top: 325px;
+    display: flex;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    font-size: 26px;
+    font-weight: bold;
+    color: red;
+    z-index: 5;
+}
+
+/* Style pour le texte "REC" */
+.rec-text {
+    margin-right: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Style pour le rond rouge clignotant */
+.rec-dot {
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    border-radius: 50%;
+    animation: blink 1s infinite;
+}
+
+/* Animation pour le clignotement */
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
 
@@ -787,7 +854,7 @@ a {
 
 /* // | HEADER */
 
-#main-header {
+#header {
     position: fixed;
     top: 0;
     left: 0;
@@ -803,12 +870,12 @@ a {
     z-index: 1000;
 }
 
-#main-header.visible {
+#header.visible {
     transform: translateY(0);
     transition: transform 0.3s ease-in-out;
 }
 
-#main-header.visible::after {
+#header.visible::after {
     content: "";
     position: absolute;
     top: 38px;
@@ -820,7 +887,7 @@ a {
     z-index: 1;
 }
 
-#main-header ul {
+#header ul {
     list-style: none;
     display: flex;
     gap: 40px;
@@ -828,11 +895,11 @@ a {
     padding: 0;
 }
 
-#main-header ul li {
+#header ul li {
     display: inline;
 }
 
-#main-header li a {
+#header li a {
     color: white;
     text-decoration: none;
     font-size: 25px;
@@ -840,7 +907,7 @@ a {
     transition: color 0.3s;
 }
 
-#main-header nav ul li a:hover {
+#header nav ul li a:hover {
     color: #F26F6C;
 }
 
@@ -865,16 +932,15 @@ a {
     top: -12px;
 }
 
-.youtube-link,
-.youtube-link-drawer {
-    color: white;
+#header .youtube-link,
+#header .youtube-link-drawer {
     text-decoration: none;
     transition: color 0.3s;
     position: relative;
 }
 
-.youtube-link i,
-.youtube-link-drawer i {
+#header .youtube-link i,
+#header .youtube-link-drawer i {
     position: absolute;
     right: 20px;
     z-index: 10000;
@@ -882,13 +948,10 @@ a {
     top: -8px;
 }
 
-.youtube-link-drawer {
+#youtube-link-drawer {
     display: none;
 }
 
-.youtube-link:hover {
-    color: red;
-}
 
 
 /* Hamburger button styles */
@@ -975,7 +1038,7 @@ footer::before {
     transition: all 0.5s ease-in-out;
 }
 
-#youtube-link i {
+#youtube-link-navbar i {
     transform: translate(50%, -50%);
     transition: all 0.5s ease-in-out;
 }
@@ -996,7 +1059,7 @@ footer::before {
     transform: translate(0, 0);
 }
 
-.logo-transition #youtube-link i {
+.logo-transition #youtube-link-navbar i {
     transform: translate(0, 0);
 }
 
@@ -1032,49 +1095,6 @@ footer::before {
 
     100% {
         transform: translateY(10px);
-        opacity: 0;
-    }
-}
-
-/* Style pour le conteneur */
-.rec-container {
-    position: absolute;
-    right: 50px;
-    top: 350px;
-    display: flex;
-    align-items: center;
-    font-family: Arial, sans-serif;
-    font-size: 26px;
-    font-weight: bold;
-    color: red;
-    z-index: 5;
-}
-
-/* Style pour le texte "REC" */
-.rec-text {
-    margin-right: 10px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-/* Style pour le rond rouge clignotant */
-.rec-dot {
-    width: 25px;
-    height: 25px;
-    background-color: red;
-    border-radius: 50%;
-    animation: blink 1s infinite;
-}
-
-/* Animation pour le clignotement */
-@keyframes blink {
-
-    0%,
-    100% {
-        opacity: 1;
-    }
-
-    50% {
         opacity: 0;
     }
 }

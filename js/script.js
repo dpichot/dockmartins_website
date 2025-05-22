@@ -93,7 +93,7 @@ function setupArtistScrolling() {
 }
 
 function setupHeaderVisibility() {
-    const header = document.getElementById('main-header');
+    const header = document.getElementById('header');
 
     window.addEventListener('scroll', () => {
         if (window.scrollY === 0) {
@@ -109,9 +109,9 @@ function setupHeaderVisibility() {
 function setupLogoTransition() {
     const heroLogo = document.getElementById('hero-logo');
     const headerLogo = document.getElementById('header-logo');
-    const headerYtLogo = document.getElementById('youtube-link');
+    const headerYtLogo = document.getElementById('youtube-link-navbar');
     const hamburger = document.getElementById('hamburger');
-    const header = document.getElementById('main-header');
+    const header = document.getElementById('header');
 
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -215,6 +215,13 @@ function setupDrawerMenu() {
             drawerMenu.classList.remove('active');
         }
     });
+
+    // Fermer le menu drawer quand on clique sur un lien
+    drawerMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            drawerMenu.classList.remove('active');
+        });
+    });
 }
 
 function setupVideoCarrousel() {
@@ -290,6 +297,100 @@ function setupParallaxVideo() {
     window.addEventListener('scroll', updateParallax);
 }
 
+function setupFormEventHandler() {
+    document.getElementById('contact-form').addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+
+
+        // Génère une question simple
+        const a = Math.floor(Math.random() * 10) + 1;
+        const b = Math.floor(Math.random() * 10) + 1;
+        const answer = a + b;
+        const user = prompt(`Vérification anti-robot : Combien font ${a} + ${b} ?`);
+        if (user === null) return; // Annulé
+        if (parseInt(user, 10) === answer) {
+            // Envoie le formulaire
+            const form = e.target;
+            const data = new FormData(form);
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    alert('Votre message a bien été envoyé !');
+                    form.reset();
+                } else {
+                    alert('Une erreur est survenue. Merci de réessayer.');
+                }
+            } catch (error) {
+                alert('Une erreur est survenue. Merci de réessayer.');
+            }
+        } else {
+            alert("Captcha incorrect. Veuillez réessayer.");
+        }
+    });
+}
+
+
+// Ouvre le lien YouTube dans l'app sur mobile, sinon dans un nouvel onglet
+function setupYoutubeLinks() {
+    function isMobile() {
+        return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    }
+
+    function openYoutube(e, appUrl, webUrl) {
+        if (isMobile()) {
+            window.location = appUrl;
+            setTimeout(function () {
+                window.open(webUrl, '_blank', 'noopener');
+            }, 500);
+        } else {
+            window.open(webUrl, '_blank', 'noopener');
+        }
+        e.preventDefault();
+    }
+
+    // Header
+    const ytHeader = document.getElementById('youtube-link-navbar');
+    if (ytHeader) {
+        ytHeader.addEventListener('click', function (e) {
+            openYoutube(
+                e,
+                'vnd.youtube://channel/UCc6StWzgPfV_317FjpJDg7g',
+                'https://www.youtube.com/@docmartine5133'
+            );
+        });
+    }
+
+    // Drawer
+    const ytDrawer = document.getElementById('youtube-link-drawer');
+    if (ytDrawer) {
+        ytDrawer.addEventListener('click', function (e) {
+            openYoutube(
+                e,
+                'vnd.youtube://channel/UCc6StWzgPfV_317FjpJDg7g',
+                'https://www.youtube.com/@docmartine5133'
+            );
+        });
+    }
+
+    // Section vidéos
+    const ytSection = document.querySelector('.video-description .youtube-link');
+    if (ytSection) {
+        ytSection.addEventListener('click', function (e) {
+            openYoutube(
+                e,
+                'vnd.youtube://channel/UCc6StWzgPfV_317FjpJDg7g',
+                'https://www.youtube.com/@docmartine5133'
+            );
+        });
+    }
+}
+
+
 // Initialize all features
 function init() {
     // setupArtistScrolling();
@@ -300,6 +401,8 @@ function init() {
     setupVideoCarrousel();
     setupParallaxOnArtistImages();
     setupParallaxVideo();
+    setupFormEventHandler();
+    setupYoutubeLinks();
 }
 
 document.addEventListener('DOMContentLoaded', init);
