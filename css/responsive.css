@@ -25,7 +25,7 @@
     }
 
     h2 {
-        font-size: 30px !important;
+        font-size: 38px !important;
     }
 
     h3 {
@@ -70,6 +70,20 @@
     }
 
     /* // | ABOUT */
+
+    #about #about-group {
+        flex-direction: column !important;
+        gap: 30px !important;
+        margin: 40px 0 !important;
+    }
+
+    #about #about-group #about-group-image {
+        width: 85vw !important;
+    }
+
+    #about #about-group #about-group-image img {
+        width: 85vw !important;
+    }
 
     .souris {
         height: 120px !important;
@@ -168,11 +182,11 @@
 
     .drawer-menu>div {
         display: flex !important;
-        justify-content: start !important;
+        justify-content: center !important;
         align-items: center !important;
         gap: 10px !important;
         font-size: 25px !important;
-        margin-top: 25px !important;
+        /* margin-top: 25px !important; */
     }
 
     #youtube-link-drawer {
@@ -196,12 +210,26 @@
 
     #header ul {
         flex-direction: column !important;
-        margin-top: 25px !important;
+        /* margin-top: 25px !important; */
         gap: 20px !important;
     }
 
     #header li a {
-        font-size: 35px !important;
+        font-size: 25px !important;
+    }
+
+    .music-player {
+        flex-direction: column-reverse !important;
+    }
+
+    .music-player .songs-list {
+        padding: 0 !important;
+        padding-top: 50px !important;
+        width: 100% !important;
+    }
+
+    .cd {
+        margin-bottom: 50px !important;
     }
 
     /* // | ARTISTS */

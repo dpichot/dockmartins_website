@@ -1,4 +1,3 @@
-// Utility function to throttle events
 function throttle(callback, limit) {
     let waiting = false;
     return function (...args) {
@@ -10,7 +9,6 @@ function throttle(callback, limit) {
     };
 }
 
-// Artist scrolling logic
 function setupArtistScrolling() {
     const artists = document.querySelectorAll('.artist');
     const artist = document.querySelector('.artist');
@@ -297,6 +295,177 @@ function setupParallaxVideo() {
     window.addEventListener('scroll', updateParallax);
 }
 
+function setupAudioPlayer() {
+    const audio = document.getElementById('player-audio');
+    const playBtn = document.getElementById('play-btn');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    const progressContainer = document.getElementById('progress-container');
+    const progressFilled = document.getElementById('progress-filled');
+    const progressThumb = document.getElementById('progress-thumb');
+    const currentTimeEl = document.getElementById('current-time');
+    const durationEl = document.getElementById('duration');
+
+    const playlistEls = Array.from(document.querySelectorAll('#playlist li'));
+    let playlistIndex = 0;
+
+    // icône Font Awesome du bouton play
+    const playIcon = playBtn ? playBtn.querySelector('i') : null;
+    function setPlaying(playing) {
+        if (playIcon) {
+            if (playing) {
+                playIcon.classList.remove('fa-play');
+                playIcon.classList.add('fa-pause');
+            } else {
+                playIcon.classList.remove('fa-pause');
+                playIcon.classList.add('fa-play');
+            }
+        } else if (playBtn) {
+            // fallback : insère l'icône si elle manque
+            playBtn.innerHTML = playing ? '<i class="fa-solid fa-pause"></i>' : '<i class="fa-solid fa-play"></i>';
+        }
+    }
+
+
+    function formatTime(sec) {
+        if (!isFinite(sec)) return '0:00';
+        const m = Math.floor(sec / 60);
+        const s = Math.floor(sec % 60).toString().padStart(2, '0');
+        return `${m}:${s}`;
+    }
+
+    function loadTrack(index) {
+        const li = playlistEls[index];
+        if (!li) return;
+        playlistEls.forEach(i => i.classList.remove('active'));
+        li.classList.add('active');
+        const src = li.dataset.src;
+        if (!src) return;
+        audio.src = src;
+        audio.load();
+        playlistIndex = index;
+    }
+
+    // events audio
+    audio.addEventListener('loadedmetadata', () => {
+        durationEl.textContent = formatTime(audio.duration);
+    });
+
+    audio.addEventListener('timeupdate', () => {
+        const pct = (audio.currentTime / (audio.duration || 1)) * 100;
+        progressFilled.style.width = `${pct}%`;
+        progressThumb.style.left = `${pct}%`;
+        currentTimeEl.textContent = formatTime(audio.currentTime);
+    });
+
+    audio.addEventListener('ended', () => {
+        // avancer au suivant
+        if (playlistIndex < playlistEls.length - 1) {
+            loadTrack(playlistIndex + 1);
+            audio.play();
+            setPlaying(true);
+        } else {
+            setPlaying(false);
+        }
+    });
+
+    // play/pause
+    playBtn.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.play();
+            setPlaying(true);
+            document.getElementById('cd-image').classList.remove('paused');
+        } else {
+            audio.pause();
+            setPlaying(false);
+            document.getElementById('cd-image').classList.add('paused');
+        }
+    });
+
+    prevBtn.addEventListener('click', () => {
+        const idx = Math.max(0, playlistIndex - 1);
+        loadTrack(idx);
+        audio.play();
+        setPlaying(true);
+    });
+
+    nextBtn.addEventListener('click', () => {
+        const idx = Math.min(playlistEls.length - 1, playlistIndex + 1);
+        loadTrack(idx);
+        audio.play();
+        setPlaying(true);
+    });
+
+    // click to seek
+    function seekFromEvent(e) {
+        const rect = progressContainer.getBoundingClientRect();
+        const clientX = (e.touches ? e.touches[0].clientX : e.clientX);
+        let x = clientX - rect.left;
+        x = Math.max(0, Math.min(rect.width, x));
+        const pct = x / rect.width;
+        audio.currentTime = pct * (audio.duration || 0);
+    }
+
+    progressContainer.addEventListener('click', (e) => {
+        seekFromEvent(e);
+    });
+
+    // drag thumb (pointer events for better cross-device)
+    let dragging = false;
+
+    progressThumb.addEventListener('pointerdown', (e) => {
+        e.preventDefault();
+        dragging = true;
+        progressThumb.setPointerCapture(e.pointerId);
+    });
+
+    progressThumb.addEventListener('pointermove', (e) => {
+        if (!dragging) return;
+        const rect = progressContainer.getBoundingClientRect();
+        let x = e.clientX - rect.left;
+        x = Math.max(0, Math.min(rect.width, x));
+        const pct = x / rect.width;
+        progressFilled.style.width = `${pct * 100}%`;
+        progressThumb.style.left = `${pct * 100}%`;
+        // ne change pas encore audio.currentTime (pour éviter sauts quand drag) — on met à la fin
+    });
+
+    progressThumb.addEventListener('pointerup', (e) => {
+        if (!dragging) return;
+        dragging = false;
+        progressThumb.releasePointerCapture(e.pointerId);
+        // apply seek
+        seekFromEvent(e);
+    });
+
+    // support keyboard (gauche/droite)
+    progressContainer.addEventListener('keydown', (e) => {
+        if (!audio.duration) return;
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {
+            audio.currentTime = Math.max(0, audio.currentTime - 5);
+        } else if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {
+            audio.currentTime = Math.min(audio.duration, audio.currentTime + 5);
+        } else if (e.key === 'Home') {
+            audio.currentTime = 0;
+        } else if (e.key === 'End') {
+            audio.currentTime = audio.duration || 0;
+        }
+    });
+
+    // playlist click pour charger une piste
+    playlistEls.forEach((li, i) => {
+        li.addEventListener('click', () => {
+            loadTrack(i);
+            audio.play();
+            setPlaying(true);
+        });
+    });
+
+    // charger la première piste
+    loadTrack(0);
+}
+
 function setupFormEventHandler() {
     document.getElementById('contact-form').addEventListener('submit', async function (e) {
         e.preventDefault();
@@ -334,8 +503,6 @@ function setupFormEventHandler() {
     });
 }
 
-
-// Ouvre le lien YouTube dans l'app sur mobile, sinon dans un nouvel onglet
 function setupYoutubeLinks() {
     function isMobile() {
         return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
@@ -390,8 +557,32 @@ function setupYoutubeLinks() {
     }
 }
 
+function setupAboutImageParallax() {
+    const aboutImage = document.getElementById('about-group-image');
+    let isHovered = false;
+    const isMobile = window.innerWidth <= 768;
 
-// Initialize all features
+    function updateParallax() {
+        const scrolled = window.scrollY;
+        const translateY = isMobile ? 0 : scrolled * -0.2 + 150; // Ajustez cette valeur pour modifier la vitesse
+        const scale = isHovered ? 'scale(1.05)' : 'scale(1)';
+        const rotate = isHovered ? 'rotate(2deg)' : 'rotate(3deg)';
+        aboutImage.style.transform = `${rotate} ${scale} translate(${isMobile ? -10 : 0}px, ${translateY}px)`;
+    }
+
+    aboutImage.addEventListener('mouseenter', () => {
+        isHovered = true;
+        updateParallax();
+    });
+
+    aboutImage.addEventListener('mouseleave', () => {
+        isHovered = false;
+        updateParallax();
+    });
+
+    window.addEventListener('scroll', updateParallax);
+}
+
 function init() {
     // setupArtistScrolling();
     setupHeaderVisibility();
@@ -403,6 +594,8 @@ function init() {
     setupParallaxVideo();
     setupFormEventHandler();
     setupYoutubeLinks();
+    setupAboutImageParallax();
+    try { setupAudioPlayer(); } catch (e) { console.warn('setupAudioPlayer failed', e); }
 }
 
 document.addEventListener('DOMContentLoaded', init);

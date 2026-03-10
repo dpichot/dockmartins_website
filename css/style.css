@@ -30,11 +30,19 @@ html {
     font-family: Arial, sans-serif;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    /* font-family: 'Comic Sans MS', cursive; */
 }
 
 a {
     text-decoration: none;
     color: inherit;
+}
+
+hr {
+    margin: 25px 0;
+    color: #29b2e4;
+    border-color: #29b2e4;
+    background-color: #29b2e4;
 }
 
 .no-scroll {
@@ -43,20 +51,16 @@ a {
 
 .section {
     position: relative;
-    padding: 20px 15%;
-}
-
-
-.section>p {
+    padding: 20px 10%;
     font-size: 28px;
 }
 
 .stylized-title {
     font-family: 'Luckiest Guy', cursive;
     font-size: 50px;
-    color: #FDF073;
-    -webkit-text-stroke: 2.5px #F26F6C;
-    text-stroke: 2.5px #F26F6C;
+    color: #ffffff;
+    -webkit-text-stroke: 3px #ff4545;
+    text-stroke: 3px #ff4545;
     text-transform: uppercase;
     text-align: center;
     display: inline-block;
@@ -88,7 +92,7 @@ a {
 }
 
 .red-texte {
-    background: #F26F6C;
+    background: #ff4545;
     padding: 2px 5px;
     display: inline-block;
     line-height: normal;
@@ -96,6 +100,21 @@ a {
     color: white;
     font-family: 'Metal Mania', cursive;
     font-size: 30px;
+    text-shadow: 2px 2px 0 black;
+    border: 2px solid black;
+}
+
+.blue-texte {
+    background: #29b2e4;
+    padding: 2px 5px;
+    display: inline-block;
+    line-height: normal;
+    margin: 5px 0;
+    color: white;
+    font-family: 'Metal Mania', cursive;
+    font-size: 30px;
+    text-shadow: 2px 2px 0 black;
+    border: 2px solid black;
 }
 
 .youtube-link:hover {
@@ -139,6 +158,7 @@ a {
 }
 
 .hero-text {
+    text-shadow: 2px 2px 0 black;
     position: relative;
     z-index: 2;
     top: 50%;
@@ -195,13 +215,14 @@ a {
 
 .button-discover:hover {
     /* background-color: white;
-    color: #F26F6C; */
+    color: #ff4545; */
     transform: scale(1.1);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
 }
 
-.button-discover:hover span {
-    border-color: #F26F6C;
+#discover-button {
+    font-size: 25px;
+    margin-top: 50px;
 }
 
 .fa-chevron-down {
@@ -250,25 +271,102 @@ a {
     font-family: 'Metal Mania';
 }
 
-.albums {
+#about #about-group {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    gap: 100px;
+    flex-direction: row;
     position: relative;
-    /* flex-wrap: wrap; */
+    margin: 100px 0;
+}
+
+#about #about-group #about-group-text h3 {
+    margin: 0;
+    padding: 0;
+}
+
+#about #about-group #about-group-image {
+    background: #000;
+    transform: rotate(3deg);
+    box-shadow: 17px 11px 20px 4px rgba(0, 0, 0, 0.5);
+    transition: all 1s ease-out;
+}
+
+#about #about-group #about-group-image img {
+    transform: rotate(3deg);
+    transition: all 1s ease-out;
+    border: 6px solid #000;
+    border-radius: 5px;
+}
+
+#about #about-group #about-group-image:hover {
+    box-shadow: 25px 18px 30px 6px rgba(0, 0, 0, 0.7);
+}
+
+.albums {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+    width: 100%;
+    align-items: start;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.album-flip {
+    perspective: 1200px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    /* carré adaptable */
+    position: relative;
+}
+
+.album-front,
+.album-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform 0.7s cubic-bezier(.4, 2, .3, .7);
+    border: 2px solid black;
+}
+
+.album-front {
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+.album-back {
+    z-index: 1;
+    transform: rotateY(180deg);
+}
+
+.album-flip:hover .album-front {
+    transform: rotateY(-180deg);
+}
+
+.album-flip:hover .album-back {
+    transform: rotateY(0deg);
 }
 
 .album img {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 30vh;
-    height: 30vh;
-    /* opacity: 0; */
-    /* transform: translateY(50px); */
-    transition: all 0.3s ease-in-out;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.album p {
+    font-family: 'Metal Mania', cursive;
+    font-size: 20px;
+    background: black;
+    padding: 5px 12px;
+    border-radius: 5px;
+    color: white;
 }
 
 .album:hover img {
@@ -289,6 +387,221 @@ a {
     z-index: 2;
 }
 
+.music-player {
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+    flex-grow: 1;
+    margin-bottom: 150px;
+    flex: 1;
+    margin: 150px 0;
+}
+
+.music-player img {
+    width: 300px;
+}
+
+.music-player .player {
+    position: relative;
+    background: url('../assets/images/dvdplayer.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 280px;
+}
+
+.music-player .timer {
+    color: #f08816;
+    font-family: 'FontAwesome';
+    position: absolute;
+left: 485px;
+    top: 58px;
+    font-size: 30px;
+}
+
+#music-player-tv,
+#music-player-dvd-player-and-shell {
+    flex-grow: 1;
+}
+
+#music-player-tv {
+    padding: 0 400px;
+    position: relative;
+    left: 106px;
+    transform: scale(.65);
+    top: -15px;
+}
+
+.music-player .cd {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+.music-player .songs-list {
+    flex: 2;
+}
+
+.music-player .player {
+    flex: 5;
+}
+
+.music-player .cd-image {
+    width: 280px;
+    height: 280px;
+    animation: spin 3s linear infinite;
+}
+
+.music-player .cd-image.paused {
+    animation-play-state: paused;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#playlist {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+    display: none;
+}
+
+#playlist li {
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 6px;
+    background: #ff4545;
+    color: #fff;
+    margin-bottom: 6px;
+}
+
+#playlist li.active {
+    background: #ff4545;
+    font-weight: 700;
+}
+
+.time-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+    color: black;
+    font-weight: 700;
+    color: #ff6a00;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.time-row span {
+    width: 55px;
+    text-align: center;
+    color: #ff6a00;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* zone clicable */
+.progress-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 18px;
+    padding: 6px 0;
+     left: 172px;
+    top: 124px;
+    width: 465px;
+    position: absolute;
+}
+
+/* track */
+.progress-bar {
+    position: relative;
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 3px solid #000;
+    border-radius: 999px;
+    overflow: visible;
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+/* filled portion */
+.progress-filled {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0%;
+    background: #ff4545;
+    border-radius: 999px;
+    transition: width 0.06s linear;
+}
+
+/* thumb */
+.progress-thumb {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 0%;
+    width: 18px;
+    height: 18px;
+    background: #ff4545;
+    border: 3px solid #000;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    touch-action: none;
+    /* pour pointer events */
+    transition: transform 0.08s ease;
+    cursor: pointer;
+}
+
+.progress-thumb:active {
+    transform: translate(-50%, -50%) scale(1.06);
+}
+
+/* accessibilité focus */
+.progress-container:focus .progress-thumb,
+.progress-thumb:focus {
+    outline: none;
+    box-shadow: 0 0 0 6px rgba(242, 111, 108, 0.12);
+}
+
+.player .player-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+
+.player button {
+    background: #f4c77a;
+    border: 5px solid black;
+    font-size: 32px;
+    margin: 0 5px;
+    border-radius: 12px;
+    width: 100px;
+    height: 72px;
+    cursor: pointer;
+    transition: transform 0.1s;
+    position: absolute;
+    box-shadow: 0 5px black;
+}
+
+.player button:hover {
+    transform: scale(1.05);
+}
+
+
 .hip {
     position: relative;
     /* Ajouté pour que les enfants en absolute se basent sur cette div */
@@ -297,7 +610,7 @@ a {
 }
 
 .hip img {
-    height: 38vh;
+    height: 25vh;
     position: absolute;
     top: -50px;
     z-index: 2;
@@ -382,6 +695,7 @@ a {
     transform: translateY(0);
     transition: transform 0.8s ease-out;
     will-change: transform;
+    margin: 0 25px;
 }
 
 .artist-image {
@@ -404,6 +718,7 @@ a {
     height: 800px;
     object-fit: cover;
     display: block;
+    border: 3px solid black;
 }
 
 /* .artist::before {
@@ -449,7 +764,7 @@ a {
 }
 
 .artist:nth-child(2) .artist-info {
-    top: -350px;
+    top: -450px;
 }
 
 .artist:nth-child(2) {
@@ -461,7 +776,7 @@ a {
 }
 
 .artist:nth-child(3) .artist-info {
-    top: -500px;
+    top: -600px;
 }
 
 .artist:nth-child(3) {
@@ -501,6 +816,7 @@ a {
     color: red;
     -webkit-text-stroke: 1px black;
     text-stroke: 1px black;
+    font-style: italic;
 }
 
 .artist-info b {
@@ -511,10 +827,11 @@ a {
     color: black;
     margin: 0 0 10px;
     padding: 35px 60px;
-    font-size: 40px;
+    font-size: 35px;
     font-weight: 600;
     transition: transform 0.8s ease-in-out;
     text-align: left;
+    font-family: monospace;
 }
 
 .artist-name {
@@ -595,6 +912,7 @@ a {
     border: none;
     box-shadow: 0 0 230px 100px rgb(59 0 0 / 70%);
     animation: shadow-pulse 2s infinite ease-in-out;
+    border-radius: 5px;
 }
 
 @keyframes shadow-pulse {
@@ -641,16 +959,16 @@ a {
 .carousel-controls .thumbnails img:hover {
     transform: scale(1.1);
     opacity: 1;
-    border-color: #F26F6C;
+    border-color: #ff4545;
 }
 
 .carousel-controls .thumbnails img.active {
-    border-color: #F26F6C;
+    border-color: #ff4545;
     opacity: 1;
 }
 
 .carousel-controls button {
-    background: rgba(0, 0, 0, 0.7);
+    background: transparent;
     color: white;
     border: none;
     font-size: 24px;
@@ -661,7 +979,7 @@ a {
 }
 
 .carousel-controls button:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 .video-description {
@@ -675,14 +993,23 @@ a {
     flex-direction: column;
 }
 
+.video-description span {
+    font-size: 15px;
+}
+
 .video-description .youtube-link {
     margin-top: 15px;
     font-size: 20px;
+    font-weight: bold;
     transition: color 0.3s;
     display: flex;
     gap: 10px;
     justify-content: center;
     align-items: center;
+}
+
+.video-description .youtube-link i {
+    font-size: 17px;
 }
 
 .video-title {
@@ -738,8 +1065,15 @@ a {
 /* // | CONTACT */
 
 #contact {
-    background-color: #F26F6C;
-    padding: 8vh 15%;
+    background-color: #ff4545;
+    padding: 8vh 0%;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-container {
+    flex-grow: 1;
+    max-width: 1260px;
 }
 
 #contact h2 {
@@ -747,7 +1081,7 @@ a {
 }
 
 #contact p {
-    font-size: 2vh;
+    font-size: 3vh;
     color: white;
     font-family: 'Metal Mania', cursive;
     margin: 50px 0;
@@ -819,7 +1153,7 @@ a {
 .button-56 {
     align-items: center;
     position: relative;
-    background-color: #FDF073;
+    background-color: #e7d000;
     border: 2px solid #111;
     border-radius: 8px;
     box-sizing: border-box;
@@ -893,6 +1227,7 @@ a {
     gap: 40px;
     margin: 0;
     padding: 0;
+    align-items: center;
 }
 
 #header ul li {
@@ -908,7 +1243,7 @@ a {
 }
 
 #header nav ul li a:hover {
-    color: #F26F6C;
+    color: #e7d000;
 }
 
 .header-logo {
@@ -944,8 +1279,8 @@ a {
     position: absolute;
     right: 20px;
     z-index: 10000;
-    font-size: 40px;
-    top: -8px;
+    font-size: 30px;
+    top: -2px;
 }
 
 #youtube-link-drawer {
@@ -971,23 +1306,32 @@ a {
 /* Drawer menu styles */
 .drawer-navbar {
     position: fixed;
-    top: 0;
-    right: -100%;
-    width: 68vw;
-    height: 100vh;
-    background-color: #000;
+    top: -500%;
+    right: 0;
+    /* width: 40vw; */
+    width: calc(100vw - 100px - 20px);
+    background-color: rgba(0, 0, 0, .95);
     color: white;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    box-shadow: -8px 8px 20px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 50px;
-    transition: right 0.3s ease-in-out;
+    align-items: center;
+    padding: 25px 50px;
+    transition: 0.3s ease-in-out;
     z-index: 1000;
+    margin: 10px 10px;
+
+    /* coins diagonaux */
+    -webkit-clip-path: polygon(9% 0, 90% 0, 100% 7px, 100% 95%, 100% 100%, 0% 100%, 0 100%, 0 8px);
+    clip-path: polygon(9% 0, 90% 0, 100% 7px, 100% 95%, 100% 100%, 0% 100%, 0 100%, 0 8px);
+    border-radius: 0;
+    /* enlever arrondis */
+    overflow: hidden;
+    ;
 }
 
 .drawer-navbar.active {
-    right: 0;
+    top: 52px !important;
 }
 
 .close-drawer {
@@ -995,10 +1339,11 @@ a {
     border: none;
     color: white;
     font-size: 24px;
-    align-self: flex-start;
+    align-self: flex-end;
     cursor: pointer;
     margin-bottom: 20px;
     padding: 0;
+    display: none;
     ;
 }
 
@@ -1025,6 +1370,11 @@ footer::before {
 }
 
 /* // | TEST */
+
+
+.hero {
+    background-image: url(../assets/images/thumbnail9.jpg);
+}
 
 #hero-logo {
     transform: translate(0, 0);
