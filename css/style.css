@@ -1374,6 +1374,9 @@ footer::before {
 
 .hero {
     background-image: url(../assets/images/thumbnail9.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
 }
 
 #hero-logo {
