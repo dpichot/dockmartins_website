@@ -1351,6 +1351,7 @@ footer {
     text-align: center;
     padding: 50px 0;
     position: relative;
+    line-height: 1.5;
 }
 
 footer::before {
@@ -1363,6 +1364,18 @@ footer::before {
     background: url('../assets/svg/zigzag-red-rotated.svg') repeat-x;
     background-size: contain;
     z-index: 1;
+}
+
+footer a {
+    text-decoration: underline !important;
+    transition: color 0.3s;
+}
+footer a:hover {
+    color: rgb(0, 63, 180) !important;
+}
+
+footer p {
+    margin: 0 !important;
 }
 
 /* // | TEST */
