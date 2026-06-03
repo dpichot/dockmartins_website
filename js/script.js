@@ -194,23 +194,31 @@ function setupParallaxEffect() {
 
 function setupDrawerMenu() {
     const hamburger = document.querySelector('.hamburger');
+    const hamburgerIcon = document.querySelector('.hamburger-icon');
     const drawerMenu = document.querySelector('.drawer-navbar');
-    const closeDrawer = document.querySelector('.close-drawer');
 
     // Ouvrir le menu drawer
     hamburger.addEventListener('click', () => {
-        drawerMenu.classList.add('active');
-    });
-
-    // Fermer le menu drawer
-    closeDrawer.addEventListener('click', () => {
-        drawerMenu.classList.remove('active');
+        if (drawerMenu.classList.contains('active')) {
+            drawerMenu.classList.remove('active');
+            hamburgerIcon.classList.remove('fa-xmark');
+            hamburgerIcon.classList.add('fa-bars');
+            hamburger.style.transform = 'translate(0, 0) rotate(0deg)';
+        } else {
+            drawerMenu.classList.add('active');
+            hamburgerIcon.classList.remove('fa-bars');
+            hamburgerIcon.classList.add('fa-xmark');
+            hamburger.style.transform = 'translate(0, 0) rotate(360deg)';
+        }
     });
 
     // Fermer le menu drawer en cliquant à l'extérieur
     window.addEventListener('click', (e) => {
         if (!drawerMenu.contains(e.target) && !hamburger.contains(e.target)) {
             drawerMenu.classList.remove('active');
+            hamburgerIcon.classList.remove('fa-xmark');
+            hamburgerIcon.classList.add('fa-bars');
+            hamburger.style.transform = 'translate(0, 0) rotate(0deg)';
         }
     });
 
@@ -218,6 +226,9 @@ function setupDrawerMenu() {
     drawerMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             drawerMenu.classList.remove('active');
+            hamburgerIcon.classList.remove('fa-xmark');
+            hamburgerIcon.classList.add('fa-bars');
+            hamburger.style.transform = 'translate(0, 0) rotate(0deg)';
         });
     });
 }
@@ -225,8 +236,8 @@ function setupDrawerMenu() {
 function setupVideoCarrousel() {
     const videoPlayer = document.getElementById('video-player');
     const thumbnails = document.querySelectorAll('.thumbnails img');
-    const prevButton = document.querySelector('.prev');
-    const nextButton = document.querySelector('.next');
+    const prevButton = document.querySelector('.prev-v');
+    const nextButton = document.querySelector('.next-v');
 
     let currentIndex = 0;
 
@@ -285,19 +296,99 @@ function setupParallaxOnArtistImages() {
 
 function setupParallaxVideo() {
     const video = document.querySelector('.background-video');
+    if (!video) return;
+
+    let ticking = false;
+    let prevProgress = -1;
 
     function updateParallax() {
         const scrollPosition = window.scrollY;
-        const offset = scrollPosition * 0.8; // Ajustez le facteur pour un effet plus ou moins rapide
-        video.style.transform = `translateY(${offset}px)`;
+        const offset = scrollPosition * 0.5; // Ajustez le facteur pour un effet plus ou moins rapide
+
+        // Progress from 0 to 1 over this many pixels scrolled
+        const maxProgressDistance = 400;
+        const progress = Math.min(scrollPosition / maxProgressDistance, 1);
+
+        // Scale up slightly and darken the video as user scrolls
+        const scale = 1 + 0.75 * progress; // up to ~1.12
+        const brightness = 1 - 0.9 * progress; // down to 0.5
+
+        video.style.transform = `translateY(${offset}px) scale(${scale})`;
+        video.style.filter = `brightness(${brightness})`;
+
+        // Debug only when progress changes enough
+        if (Math.abs(progress - prevProgress) > 0.01) {
+            console.debug('parallaxVideo', { scrollPosition, progress, scale, brightness, offset });
+            prevProgress = progress;
+        }
+
+        ticking = false;
     }
 
-    window.addEventListener('scroll', updateParallax);
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(updateParallax);
+            ticking = true;
+        }
+    }, { passive: true });
+}
+
+function setupSectionReveal() {
+    const targets = document.querySelectorAll('.reveal');
+    if (!targets.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.05,
+        rootMargin: '0px 0px 0% 0px'
+    });
+
+    targets.forEach((target, index) => {
+        target.style.transitionDelay = `${index * 0.08}s`;
+        observer.observe(target);
+    });
+}
+
+function setupHeroTextParallax() {
+    const hero = document.querySelector('.hero');
+    const heroText = document.querySelector('.hero-text');
+    if (!hero || !heroText) return;
+
+    let ticking = false;
+
+    function updateHero() {
+        const rect = hero.getBoundingClientRect();
+        const distance = Math.max(0, -rect.top);
+        const max = Math.max(rect.height, window.innerHeight);
+        const progress = Math.min(distance / (max || 1), 1);
+
+        const maxOffset = window.innerWidth <= 768 ? 30 : 400;
+        const offset = progress * maxOffset;
+
+        heroText.style.transform = `translate(-50%, calc(-50% + -${offset}px))`;
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(updateHero);
+            ticking = true;
+        }
+    }, { passive: true });
+
+    updateHero();
 }
 
 function setupAudioPlayer() {
     const audio = document.getElementById('player-audio');
     const playBtn = document.getElementById('play-btn');
+    const pauseBtn = document.getElementById('pause-btn');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
 
@@ -309,24 +400,6 @@ function setupAudioPlayer() {
 
     const playlistEls = Array.from(document.querySelectorAll('#playlist li'));
     let playlistIndex = 0;
-
-    // icône Font Awesome du bouton play
-    const playIcon = playBtn ? playBtn.querySelector('i') : null;
-    function setPlaying(playing) {
-        if (playIcon) {
-            if (playing) {
-                playIcon.classList.remove('fa-play');
-                playIcon.classList.add('fa-pause');
-            } else {
-                playIcon.classList.remove('fa-pause');
-                playIcon.classList.add('fa-play');
-            }
-        } else if (playBtn) {
-            // fallback : insère l'icône si elle manque
-            playBtn.innerHTML = playing ? '<i class="fa-solid fa-pause"></i>' : '<i class="fa-solid fa-play"></i>';
-        }
-    }
-
 
     function formatTime(sec) {
         if (!isFinite(sec)) return '0:00';
@@ -372,15 +445,15 @@ function setupAudioPlayer() {
 
     // play/pause
     playBtn.addEventListener('click', () => {
-        if (audio.paused) {
-            audio.play();
-            setPlaying(true);
-            document.getElementById('cd-image').classList.remove('paused');
-        } else {
-            audio.pause();
-            setPlaying(false);
-            document.getElementById('cd-image').classList.add('paused');
-        }
+        audio.play();
+        setPlaying(true);
+        document.getElementById('cd-image').classList.remove('paused');
+    });
+
+    pauseBtn.addEventListener('click', () => {
+        audio.pause();
+        setPlaying(false);
+        document.getElementById('cd-image').classList.add('paused');
     });
 
     prevBtn.addEventListener('click', () => {
@@ -564,7 +637,7 @@ function setupAboutImageParallax() {
 
     function updateParallax() {
         const scrolled = window.scrollY;
-        const translateY = isMobile ? 0 : scrolled * -0.2 + 150; // Ajustez cette valeur pour modifier la vitesse
+        const translateY = isMobile ? 0 : scrolled * -0.15 + (window.innerWidth < 1200 ? 150 : 50); // Ajustez cette valeur pour modifier la vitesse
         const scale = isHovered ? 'scale(1.05)' : 'scale(1)';
         const rotate = isHovered ? 'rotate(2deg)' : 'rotate(3deg)';
         aboutImage.style.transform = `${rotate} ${scale} translate(${isMobile ? -10 : 0}px, ${translateY}px)`;
@@ -592,6 +665,8 @@ function init() {
     setupVideoCarrousel();
     setupParallaxOnArtistImages();
     setupParallaxVideo();
+    setupHeroTextParallax();
+    setupSectionReveal();
     setupFormEventHandler();
     setupYoutubeLinks();
     setupAboutImageParallax();

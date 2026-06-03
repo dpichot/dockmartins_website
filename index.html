@@ -1,470 +1,576 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-
-<head>
+  <head>
     <title>Doc Martine</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Doc Martine - Groupe de musique rock, funk et festif du label Terre de Groove  situé a Billom (63) avec plus de 400 concerts et 4 albums. Découvrez nos artistes et nos vidéos.">
-    <meta name="keywords"
-        content="Doc Martine, musique, rock, funk, concerts, albums, artistes, vidéos, terre de groove, billom 63, channonat, soustre, lisze, scherman, cavalié, combe, chardon">
-    <meta name="author" content="Doc Martine">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-        integrity="sha512-papX2EvkZC6kz9RX+...etc..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Site officiel des Doc Martine. Groupe de musique rock, funk et festif du label Terre de Groove situé a Billom (63). Venez découvrir le groupe !"
+    />
+    <meta property="og:site_name" content="Doc Martine" />
+    <meta
+      name="keywords"
+      content="Doc Martine, musique, rock, funk, concerts, albums, artistes, vidéos, terre de groove, billom 63, channonat, soustre, lisze, scherman, cavalié, combe, chardon"
+    />
+    <meta name="author" content="Doc Martine" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-papX2EvkZC6kz9RX+...etc..."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
 
-</head>
-
-<body>
+  <body>
     <header id="header">
-        <a href="#" class="logo-link">
-            <img src="assets/images/logo.png" alt="Logo Doc Martine" class="header-logo" id="header-logo">
-        </a>
-        <nav class="navbar">
-            <ul class="menu">
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#artists">Artistes</a></li>
-                <li><a href="#medias">Vidéos</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <a href="https://www.youtube.com/@docmartine5133" target="_blank" rel="noopener noreferrer" class="youtube-link"
-            id="youtube-link-navbar">
-            <i class="fab fa-youtube"></i>
-        </a>
-        <button class="hamburger" aria-label="Menu">
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="drawer-navbar">
-            <button class="close-drawer" aria-label="Fermer le menu">
-                <i class="fas fa-times"></i>
-            </button>
-            <ul class="drawer-menu">
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#artists">Artistes</a></li>
-                <li><a href="#medias">Vidéos</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <!-- <div>
+      <a href="#" class="logo-link">
+        <img
+          src="assets/images/logo.png"
+          alt="Logo Doc Martine"
+          class="header-logo"
+          id="header-logo"
+        />
+      </a>
+      <nav class="navbar">
+        <ul class="menu">
+          <li><a href="#about">À propos</a></li>
+          <li><a href="#artists">Artistes</a></li>
+          <li><a href="#medias">Vidéos</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a
+        href="https://www.youtube.com/@docmartine5133"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="youtube-link"
+        id="youtube-link-navbar"
+      >
+        <i class="fab fa-youtube"></i>
+      </a>
+      <button class="hamburger" aria-label="Menu">
+        <i class="fas fa-bars hamburger-icon"></i>
+      </button>
+      <div class="drawer-navbar">
+        <ul class="drawer-menu">
+          <li><a href="#about">À propos</a></li>
+          <li><a href="#artists">Artistes</a></li>
+          <li><a href="#medias">Vidéos</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <!-- <div>
                     <a href="https://www.youtube.com/@docmartine5133" target="_blank" rel="noopener noreferrer"
                         class="youtube-link" id="youtube-link-drawer">
                         <i class="fab fa-youtube"></i>
                         <span>YouTube</span>
                     </a>
                 </div> -->
-            </ul>
-        </div>
+        </ul>
+      </div>
     </header>
 
     <main>
+      <section class="hero">
+        <video autoplay muted loop playsinline class="background-video">
+          <source src="assets/videos/1.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-text">
+          <img
+            src="assets/images/logo.png"
+            alt="Logo Doc Martine"
+            class="logo"
+            id="hero-logo"
+          />
+          Rock, funk, festif... et bien plus encore.<br />
+          <div>
+            <span class="red-texte">Quatre albums</span> et plus de
+            <span class="red-texte">400 concerts</span>
+          </div>
+          Plus de deux décennies qu'ils mettent le bazar<br />
+          <a href="#about" id="discover-button" class="button-56"
+            >Nous découvrir</a
+          >
+        </div>
+      </section>
 
-        <section class="hero">
-            <video autoplay muted loop playsinline class="background-video">
-                <source src="assets/videos/1.mp4" type="video/mp4">
-            </video>
-            <div class="hero-text">
-                <img src="assets/images/logo.png" alt="Logo Doc Martine" class="logo" id="hero-logo">
-                Rock, funk, festif... et bien plus encore.<br>
-                <div>
-                    <span class="red-texte">Quatre albums</span> et plus de <span class="red-texte">400 concerts</span>
-                </div>
-                Plus de deux décennies qu'ils mettent le bazar<br>
-                <button href="#about" id="discover-button" class="button-56">Nous découvrir</a>
-            </div>
-        </section>
+      <section class="section" id="about">
+        <!-- <div class="parallax-text"> -->
+        <h2 class="stylized-title reveal">Qui sommes-nous ?</h2>
 
-        <section class="section" id="about">
-            <!-- <div class="parallax-text"> -->
-            <h2 class="stylized-title">Qui sommes-nous ?</h2>
-
-            <div id="about-group">
-                <div id="about-group-text">
-                    <h3 class="sub-title">Le groupe</h3>
-                    <p> Formé en septembre <b>1995</b> le groupe était composé alors de <b>3 choristes, 2 guitaristes, 1
-                            chanteur, 1 bassiste et 1 batteur</b>.
-                        <br>
-                        <br>
-                        Sur cette base, et à travers le temps, des changements de musiciens ont eu lieu autour d'un «
-                        noyau dur
-                        »
-                        composé du guitariste compositeur <b>Thierry Soustre</b>, du bassiste <b>Claude Robert</b>
-                        (jusqu'au
-                        changement récent <b>Pierre lisze</b>), du chanteur <b>Berny Chanonat</b>, des choristes
-                        <b>Marielle
-                            Combes, Sophie Chardon ,Fabienne Cavalié</b> (jusqu'au changement avec <b>Katy Soustre</b>
-                        et
-                        <b>Florine Dulieux</b>)
-                        Il s'est parfois étoffé d'un accordéoniste, d'un saxophoniste ...
-                    </p>
-                </div>
-                <div id="about-group-image">
-                    <img src="assets/images/1.jpg" alt="Groupe Doc Martine" class="group-photo">
-                </div>
-
-            </div>
-
-
-            <h3 class="sub-title">Discographie</h3>
-
-            <div>
-                <span class="red-texte">4 albums studio</span>
-                <div class="souris-container">
-                    <img src="assets/images/rat_animation.gif" alt="Souris" class="souris">
-                </div>
-                <div class="albums">
-                    <div class="album">
-                        <div class="album-flip">
-                            <div class="album-front">
-                                <img src="assets/images/a3.jpg" alt="Recto Album 3">
-                            </div>
-                            <div class="album-back">
-                                <img src="assets/images/a2.jpg" alt="Verso Album 3">
-                            </div>
-                        </div>
-                        <!-- <p>Quoiquinia11 (1997)</p> -->
-                    </div>
-                    <div class="album">
-                        <div class="album-flip">
-                            <div class="album-front">
-                                <img src="assets/images/a2.jpg" alt="Recto Album 2">
-                            </div>
-                            <div class="album-back">
-                                <img src="assets/images/a2.jpg" alt="Verso Album 2">
-                            </div>
-                        </div>
-                        <!-- <p>Entre lacets (2000)</p> -->
-                    </div>
-                    <div class="album">
-                        <div class="album-flip">
-                            <div class="album-front">
-                                <img src="assets/images/a1.jpg" alt="Recto Album 1">
-                            </div>
-                            <div class="album-back">
-                                <img src="assets/images/a2.jpg" alt="Verso Album 1">
-                            </div>
-                        </div>
-                        <!-- <p>La Tectonik des klaques (2005)</p> -->
-                    </div>
-                    <div class="album">
-                        <div class="album-flip">
-                            <div class="album-front">
-                                <img src="assets/images/a4.jpg" alt="Recto Album 4">
-                            </div>
-                            <div class="album-back">
-                                <img src="assets/images/a2.jpg" alt="Verso Album 4">
-                            </div>
-                        </div>
-                        <!-- <p>A couvrir le feu (2011)</p> -->
-                    </div>
-                </div>
-            </div>
-
-            <hr>
-            </hr>
-
-            <div>
-                <span class="red-texte">une maquette studio</span> de 6 titres, plus de <span class="red-texte">400
-                    concerts</span>
-            </div>
-
-            <div>
-                <p>
-                    Plusieurs vidéos live dont un clip pro, des festivals régionaux, les jeudi du pressoir (Billom,
-                    63160), festival du court métrage (Clermont-Ferrand, 63000), ainsi qu'à quasi tous les cafés
-                    concerts d'Auvergne et de Navarre.
-                </p>
-
-            </div>
-
-
-            <h3 class="sub-title">C'est quoi comme style</h3>
+        <div id="about-group">
+          <div id="about-group-text" class="reveal">
+            <h3 class="sub-title reveal">Le groupe</h3>
             <p>
-                C est le bazar !
-                <br><br>
-                Des textes en français <b>dynamite</b>, mettant « en valeur quelques perfections » <b>sociétales,
-                    gouvernementales, humaines... </b>
-                tel que l'actionnariat, l'ultralibéralisme, l'équilibre dans la répartition des richesses et l'accueil
-                des touristes politiques ou climatiques ... <b>Philanthropiques</b> et <b>humanitaire...</b>
-                mais aussi de la culture des hippopotames, ou des lapins en passant par l'embarras pédestre des milles
-                pattes et de l'amour...
-                l'amour toujours...
-                <br><br>
-                Une musique qui s'explose en passant du <b>rock</b> au <b>funk</b> au <b>groove
-                </b> avec un petit coup d'œil sur une
-                biguine sensuelle, ou un reggae efficace.
-                <br><br>
-                Sans oublier,
-                <br><br>
-                L'agitation d'un <b>chanteur testeur trampoline</b> de « podium valise ». Le <b>swing chorégraphique</b>
-                des
-                choristes. Et
-                de multiples <b>colifichets</b> pour les <b>peuplades spectatrices</b> : Cotillons, ballons, bulles et
-                machines à bulles,
-                serpentins. Distribués parfois pour les gros concerts, par deux ou trois charmantes « elfettes »
-                spéciales
-                et ailées (afin de concurrencer les effets spéciaux)
-
+              Formé en septembre <b>1995</b> le groupe était composé alors de
+              <b
+                >3 choristes, 2 guitaristes, 1 chanteur, 1 bassiste et 1
+                batteur</b
+              >.
+              <br />
+              <br />
+              Sur cette base, et à travers le temps, des changements de
+              musiciens ont eu lieu autour d'un « noyau dur » composé du
+              guitariste compositeur <b>Thierry Soustre</b>, du bassiste
+              <b>Claude Robert</b> (jusqu'au changement récent
+              <b>Pierre lisze</b>), du chanteur <b>Berny Chanonat</b>, des
+              choristes
+              <b>Marielle Combes, Sophie Chardon ,Fabienne Cavalié</b> (jusqu'au
+              changement avec <b>Katy Soustre</b>
+              et
+              <b>Florine Dulieux</b>) Il s'est parfois étoffé d'un
+              accordéoniste, d'un saxophoniste ...
             </p>
-            <!-- </div> -->
+          </div>
+          <div id="about-group-image" class="reveal">
+            <img
+              src="assets/images/1.jpg"
+              alt="Groupe Doc Martine"
+              class="group-photo"
+            />
+          </div>
+        </div>
 
-            <h3 class="sub-title">Fait toi un avis</h3>
+        <h3 class="sub-title reveal">Discographie</h3>
 
-            <div class="music-player">
-                <img src="assets/images/audiol.png"/>
-                <div class="player">
-                    <!-- audio element (hidden controls) -->
-                    <audio id="player-audio" preload="metadata">
-                        <source src="assets/audios/brandis pas.mp3" type="audio/mpeg">
-                    </audio>
-
-                    <ul id="playlist" style="display: none;">
-                        <li class="" data-src="assets/audios/1000 pattes.mp3"><i class="fa-solid fa-play"></i>1000
-                            pattes</li>
-                        <li class="" data-src="assets/audios/brandis pas.mp3"><i class="fa-solid fa-play"></i>Brandis
-                            pas</li>
-                        <li class="" data-src="assets/audios/l'indien.mp3"><i class="fa-solid fa-play"></i>L'indien</li>
-                        <li class="" data-src="assets/audios/nique nique.mp3"><i class="fa-solid fa-play"></i>Nique
-                            nique</li>
-                        <li class="" data-src="assets/audios/quoiquinia.mp3"><i class="fa-solid fa-play"></i>Quoiquinia
-
-                        </li>
-                    </ul>
-
-                    <div class="timer">
-                        <span id="current-time">0:00</span>
-                        <span > / </span>
-                        <span id="duration">0:00</span>
-                    </div>
-
-                    <!-- progress + controls -->
-                    <div class="progress-container" id="progress-container" aria-label="Barre d'avancement"
-                        role="slider" tabindex="0">
-                        <div class="progress-bar">
-                            <div class="progress-filled" id="progress-filled"></div>
-                            <div class="progress-thumb" id="progress-thumb"></div>
-                        </div>
-                    </div>
-                    <!-- <div class="time-row"> -->
-                    <!-- </div> -->
-
-                    <!-- controls -->
-                    <!-- <div class="player-controls"> -->
-                    <!-- </div> -->
-                    <button style="top: 170px;left: 156px;" id="prev-btn" class="control-btn"><i class="fa-solid fa-backward"></i></button>
-                    <button style="top: 170px;left: 277px;" id="play-btn" class="control-btn"><i class="fa-solid fa-play"></i></button>
-                    <button style="top: 170px;left: 407px;" id="pause-btn" class="control-btn"><i class="fa-solid fa-pause"></i></button>
-                    <button style="top: 170px;left: 533px;" id="next-btn" class="control-btn"><i class="fa-solid fa-forward"></i></button>
-
+        <div class="reveal">
+          <span class="red-texte">4 albums studio</span>
+          <div class="souris-container">
+            <img
+              src="assets/images/rat_animation.gif"
+              alt="Souris"
+              class="souris"
+            />
+          </div>
+          <div class="albums">
+            <div class="album">
+              <div class="album-flip">
+                <div class="album-front">
+                  <img src="assets/images/a3.jpg" alt="Recto Album 3" />
                 </div>
-                <img src="assets/images/audior.png"/>
+                <div class="album-back">
+                  <img src="assets/images/a3b.jpg" alt="Verso Album 3" />
+                </div>
+              </div>
+              <!-- <p>Quoiquinia11 (1997)</p> -->
+            </div>
+            <div class="album">
+              <div class="album-flip">
+                <div class="album-front">
+                  <img src="assets/images/a2.jpg" alt="Recto Album 2" />
+                </div>
+                <div class="album-back">
+                  <img src="assets/images/a2b.jpg" alt="Verso Album 2" />
+                </div>
+              </div>
+              <!-- <p>Entre lacets (2000)</p> -->
+            </div>
+            <div class="album">
+              <div class="album-flip">
+                <div class="album-front">
+                  <img src="assets/images/a1.jpg" alt="Recto Album 1" />
+                </div>
+                <div class="album-back">
+                  <img src="assets/images/a1b.jpg" alt="Verso Album 1" />
+                </div>
+              </div>
+              <!-- <p>La Tectonik des klaques (2005)</p> -->
+            </div>
+            <div class="album">
+              <div class="album-flip">
+                <div class="album-front">
+                  <img src="assets/images/a4.jpg" alt="Recto Album 4" />
+                </div>
+                <div class="album-back">
+                  <img src="assets/images/a4b.jpg" alt="Verso Album 4" />
+                </div>
+              </div>
+              <!-- <p>A couvrir le feu (2011)</p> -->
+            </div>
+          </div>
+        </div>
+
+        <br /><br />
+
+        <div class="reveal">
+          <p>
+            Une maquette studio. Plusieurs vidéos live dont un clip pro, des
+            festivals régionaux, les jeudi du pressoir (Billom, 63160), festival
+            du court métrage (Clermont-Ferrand, 63000), ainsi qu'à quasi tous
+            les cafés concerts d'Auvergne et de Navarre.
+          </p>
+        </div>
+
+        <div class="reveal">
+          <span class="red-texte">+ 400 concerts</span>
+        </div>
+
+        <h3 class="sub-title reveal">C'est quoi comme style</h3>
+        <p class="reveal">
+          C est le bazar !
+          <br /><br />
+          Des textes en français <b>dynamite</b>, mettant « en valeur quelques
+          perfections » <b>sociétales, gouvernementales, humaines... </b> tel
+          que l'actionnariat, l'ultralibéralisme, l'équilibre dans la
+          répartition des richesses et l'accueil des touristes politiques ou
+          climatiques ... <b>Philanthropiques</b> et <b>humanitaire...</b>
+          mais aussi de la culture des hippopotames, ou des lapins en passant
+          par l'embarras pédestre des milles pattes et de l'amour... l'amour
+          toujours...
+          <br /><br />
+          Une musique qui s'explose en passant du <b>rock</b> au <b>funk</b> au
+          <b>groove </b> avec un petit coup d'œil sur une biguine sensuelle, ou
+          un reggae efficace. <br /><br />
+          Sans oublier,
+          <br /><br />
+          L'agitation d'un <b>chanteur testeur trampoline</b> de « podium valise
+          ». Le <b>swing chorégraphique</b> des choristes. Et de multiples
+          <b>colifichets</b> pour les <b>peuplades spectatrices</b> : Cotillons,
+          ballons, bulles et machines à bulles, serpentins. Distribués parfois
+          pour les gros concerts, par deux ou trois charmantes « elfettes »
+          spéciales et ailées (afin de concurrencer les effets spéciaux)
+        </p>
+        <!-- </div> -->
+
+        <h3 class="sub-title">Fait toi un avis</h3>
+
+        <div class="music-player">
+          <img
+            src="assets/images/audiol.png"
+            id="audiol"
+            alt="Enceinte gauche"
+          />
+          <div class="player">
+            <img
+              src="assets/images/dvdplayer.png"
+              alt="Lecteur audio"
+              class="player-shell"
+            />
+            <div class="souris-container-player">
+              <img
+                src="assets/images/rat_animation.gif"
+                alt="Souris Player"
+                class="souris-player"
+              />
+            </div>
+            <audio id="player-audio" preload="metadata">
+              <source src="assets/audios/brandis pas.mp3" type="audio/mpeg" />
+            </audio>
+
+            <ul id="playlist" style="display: none">
+              <li class="" data-src="assets/audios/1000 pattes.mp3">
+                <i class="fa-solid fa-play"></i>1000 pattes
+              </li>
+              <li class="" data-src="assets/audios/brandis pas.mp3">
+                <i class="fa-solid fa-play"></i>Brandis pas
+              </li>
+              <li class="" data-src="assets/audios/l'indien.mp3">
+                <i class="fa-solid fa-play"></i>L'indien
+              </li>
+              <li class="" data-src="assets/audios/nique nique.mp3">
+                <i class="fa-solid fa-play"></i>Nique nique
+              </li>
+              <li class="" data-src="assets/audios/quoiquinia.mp3">
+                <i class="fa-solid fa-play"></i>Quoiquinia
+              </li>
+            </ul>
+
+            <div class="timer">
+              <span id="current-time">0:00</span>
+              <span> / </span>
+              <span id="duration">0:00</span>
             </div>
 
-            <div class="hip">
-                <img src="assets/images/hip.png" alt="Hippo" class="hippo">
+            <div
+              class="progress-container"
+              id="progress-container"
+              aria-label="Barre d'avancement"
+              role="slider"
+              tabindex="0"
+            >
+              <div class="progress-bar">
+                <div class="progress-filled" id="progress-filled"></div>
+                <div class="progress-thumb" id="progress-thumb"></div>
+              </div>
             </div>
 
-        </section>
-
-        <section class="section" id="artists">
-
-            <!-- Faire en sorte ne pas vraiment scroller mais quans tu scroll on passe sur la presentation d'un autre artiste sans bouger sans vraiment scroller -->
-
-            <h2>Les artistes</h2>
-
-            <div class="artists-list">
-
-                <div class="artist">
-                    <img class="instrument" src="assets/images/i1.png" alt="Guitare">
-                    <div class="artist-image">
-                        <img src="assets/images/m1.jpg" alt="Thierry Soustre">
-                    </div>
-                    <div class="artist-info">
-                        <div class="artist-name">
-                            <span>Thierry Soustre</span>
-                        </div>
-                        <p class="description"><b class="red-texte">LE GUITARISTE</b><br><br>Le maestro des cordes,
-                            capable
-                            de faire pleurer une guitare et
-                            sourire un public.
-                            Avec ses riffs enflammés et sa créativité débordante, il est l'âme musicale du groupe.
-                        </p>
-                    </div>
-                </div>
-                <div class="artist">
-                    <img class="instrument" src="assets/images/i2.png" alt="Basse">
-                    <div class="artist-info">
-                        <div class="artist-name">
-                            <span>Pierre Lisze</span>
-                        </div>
-                        <p class="description"><b class="red-texte">LE BASSISTE</b><br><br>Le bassiste qui groove
-                            tellement
-                            qu'il fait danser les murs.
-                            Son jeu précis et puissant est le moteur rythmique qui fait vibrer chaque morceau.
-                        </p>
-                    </div>
-                    <div class="artist-image">
-                        <img src="assets/images/m2.jpg" alt="Pierre Lisze">
-                    </div>
-                </div>
-                <div class="artist">
-                    <img class="instrument" src="assets/images/i3.png" alt="Microphone">
-                    <div class="artist-image">
-                        <img src="assets/images/m3.jpg" alt="Katy Soustre et Florine Dulieux">
-                    </div>
-                    <div class="artist-info">
-                        <div class="artist-name">
-                            <span>Katy Soustre et Florine Dulieux</span>
-                        </div>
-                        <p class="description"><b class="red-texte">LES CHORISTES</b><br><br>Les choristes qui
-                            transforment
-                            chaque note en magie vocale.
-                            Leur harmonie parfaite et leur énergie communicative illuminent chaque performance.
-                        </p>
-                    </div>
-                </div>
-                <div class="artist">
-                    <img class="instrument" src="assets/images/i5.png" alt="Batterie">
-                    <div class="artist-info">
-                        <div class="artist-name">
-                            <span>Jean Pierre Scherma</span>
-                        </div>
-                        <p class="description"><b class="red-texte">LE BATTEUR</b><br><br>Le batteur qui frappe si bien
-                            qu'il pourrait rivaliser avec un
-                            métronome.
-                            Avec sa précision et sa puissance, il donne au groupe un rythme inébranlable.
-                        </p>
-                    </div>
-                    <div class="artist-image">
-                        <img src="assets/images/m4.png" alt="Jean Pierre Scherma">
-                    </div>
-                </div>
-                <div class="artist">
-                    <img class="instrument" src="assets/images/i4.png" alt="Microphone">
-                    <div class="artist-image">
-                        <img src="assets/images/m5.jpg" alt="Berny Chanonat">
-                    </div>
-                    <div class="artist-info">
-                        <div class="artist-name">
-                            <span>Berny Chanonat</span>
-                        </div>
-                        <p class="description"><b class="red-texte">LE CHANTEUR</b><br><br>Le chanteur dont la voix
-                            pourrait réveiller les volcans
-                            d'Auvergne.
-
-                        </p>
-                    </div>
-                </div>
+            <div class="player-controls">
+              <button id="prev-btn" class="control-btn">
+                <i class="fa-solid fa-backward"></i>
+              </button>
+              <button id="play-btn" class="control-btn">
+                <i class="fa-solid fa-play"></i>
+              </button>
+              <button id="pause-btn" class="control-btn">
+                <i class="fa-solid fa-pause"></i>
+              </button>
+              <button id="next-btn" class="control-btn">
+                <i class="fa-solid fa-forward"></i>
+              </button>
             </div>
-        </section>
+          </div>
+          <img
+            src="assets/images/audior.png"
+            id="audior"
+            alt="Enceinte droite"
+          />
+        </div>
 
-        <section class="section" id="medias">
-            <!-- <img src="assets/images/camera.png" id="medias-logo">
+        <div class="hip">
+          <img src="assets/images/hip.png" alt="Hippo" class="hippo" />
+        </div>
+      </section>
+
+      <section class="section" id="artists">
+        <!-- Faire en sorte ne pas vraiment scroller mais quans tu scroll on passe sur la presentation d'un autre artiste sans bouger sans vraiment scroller -->
+
+        <h2>Les artistes</h2>
+
+        <div class="artists-list">
+          <div class="artist">
+            <div class="artist-image">
+              <img src="assets/images/m1.jpg" alt="Thierry Soustre" />
+            </div>
+            <div class="artist-info">
+              <div class="artist-name">
+                <span>Thierry Soustre</span>
+              </div>
+              <p class="description">
+                <b class="red-texte">LE GUITARISTE</b><br /><br />
+                Compositeur arrangeur, ingénieux du son. C'est l'âme musicale du
+                groupe. Guitare héros, et trafiquant de mélodies addictives,
+                patient gardien d'une cohérence "file"
+              </p>
+            </div>
+          </div>
+          <div class="artist">
+            <div class="artist-info">
+              <div class="artist-name">
+                <span>Pierre Lisze</span>
+              </div>
+              <p class="description">
+                <b class="red-texte">LE BASSISTE</b><br /><br />
+                Par pur feneantise et beaucoup de talent. Il a lâché les
+                transports de fûts, caisses et les baguettes de batterie des doc
+                qu'il tenait depuis longtemps. Ceci pour opter pour le groovy
+                d'une basse.
+              </p>
+            </div>
+            <div class="artist-image">
+              <img src="assets/images/m2.jpg" alt="Pierre Lisze" />
+            </div>
+          </div>
+          <div class="artist">
+            <div class="artist-image">
+              <img
+                src="assets/images/m3.jpg"
+                alt="Katy Soustre et Florine Dulieux"
+              />
+            </div>
+            <div class="artist-info">
+              <div class="artist-name">
+                <span>Katy Soustre et Florine Dulieux</span>
+              </div>
+              <p class="description">
+                <b class="red-texte">LES CHORISTES</b><br /><br />
+                Double présence, double talent, accorder leurs voix, leur danse,
+                et suivre les impros "parolieres" du chanteur et les
+                prolongations hors jeu.
+              </p>
+            </div>
+          </div>
+          <div class="artist">
+            <div class="artist-info">
+              <div class="artist-name">
+                <span>Jean Pierre Scherma</span>
+              </div>
+              <p class="description">
+                <b class="red-texte">LE BATTEUR</b><br /><br />
+                Après quelques années d'errance à piloter des missiles qu'on
+                appel motos. Il est revenu parmi nous avec une rythmique qui
+                dépote, et prend les virages à 180⁰.
+              </p>
+            </div>
+            <div class="artist-image">
+              <img src="assets/images/m4.png" alt="Jean Pierre Scherma" />
+            </div>
+          </div>
+          <div class="artist">
+            <div class="artist-image">
+              <img src="assets/images/m5.jpg" alt="Berny Chanonat" />
+            </div>
+            <div class="artist-info">
+              <div class="artist-name">
+                <span>Berny Chanonat</span>
+              </div>
+              <p class="description">
+                <b class="red-texte">LE CHANTEUR</b><br /><br />
+                Drôle d'oiseau, qui se la pète à gesticuler, perché sur une
+                valise remplie de cotillons, ballons, chapeaux de sorcier...
+                Obsédé textuel poursuivi pour faux et usage de voix, par les
+                services orthographiques, et les brigades d'ORL
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="medias">
+        <!-- <img src="assets/images/camera.png" id="medias-logo">
             <img src="assets/images/camerar.png" id="medias-logo-r"> -->
-            <div class="rec-container">
-                <span class="rec-text">REC</span>
-                <span class="rec-dot"></span>
+        <div class="rec-container">
+          <span class="rec-text">REC</span>
+          <span class="rec-dot"></span>
+        </div>
+        <h2>Vidéo surveillance</h2>
+        <div class="video-carousel">
+          <video id="video-player" controls autoplay>
+            <source src="assets/videos/v1.mp4" type="video/mp4" />
+            Votre navigateur ne supporte pas la lecture de vidéos.
+          </video>
+          <div class="other-videos"><span>Autre vidéo :</span></div>
+          <div class="carousel-controls">
+            <button class="prev-v">&#10094;</button>
+            <div class="thumbnails">
+              <div class="thumbnail-container">
+                <img
+                  src="assets/images/thumbnail1.jpg"
+                  data-video="assets/videos/v1.mp4"
+                  alt="Vidéo 1"
+                  class="active"
+                />
+                <div class="video-title">17/05/2024 - Jeudi du pressoire</div>
+              </div>
+              <div class="thumbnail-container">
+                <img
+                  src="assets/images/thumbnail2.jpg"
+                  data-video="assets/videos/v2.mov"
+                  alt="Vidéo 2"
+                />
+                <div class="video-title">17/05/2024 - Jeudi du pressoire</div>
+              </div>
+              <div class="thumbnail-container">
+                <img
+                  src="assets/images/thumbnail3.jpg"
+                  data-video="assets/videos/v3.mp4"
+                  alt="Vidéo 3"
+                />
+                <div class="video-title">17/05/2024 - Jeudi du pressoire</div>
+              </div>
+              <div class="thumbnail-container">
+                <img
+                  src="assets/images/thumbnail4.jpg"
+                  data-video="assets/videos/v4.mp4"
+                  alt="Vidéo 4"
+                />
+                <div class="video-title">17/05/2024 - Jeudi du pressoire</div>
+              </div>
+              <div class="thumbnail-container">
+                <img
+                  src="assets/images/thumbnail6.jpg"
+                  data-video="assets/videos/v6.mp4"
+                  alt="Vidéo 6"
+                />
+                <div class="video-title">17/05/2024 - Jeudi du pressoire</div>
+              </div>
+              <div class="thumbnail-container">
+                <img
+                  src="assets/images/thumbnail7.jpg"
+                  data-video="assets/videos/v7.mp4"
+                  alt="Vidéo 7"
+                />
+                <div class="video-title">17/05/2024 - Jeudi du pressoire</div>
+              </div>
+              <div class="thumbnail-container">
+                <img
+                  src="assets/images/thumbnail8.jpg"
+                  data-video="assets/videos/v8.mp4"
+                  alt="Vidéo 8"
+                />
+                <div class="video-title">17/05/2024 - Jeudi du pressoire</div>
+              </div>
+              <div class="thumbnail-container">
+                <img
+                  src="assets/images/thumbnail9.jpg"
+                  data-video="assets/videos/v9.mp4"
+                  alt="Vidéo 9"
+                />
+                <div class="video-title">17/05/2024 - Jeudi du pressoire</div>
+              </div>
             </div>
-            <h2>Vidéo surveillance</h2>
-            <div class="video-carousel">
-                <video id="video-player" controls autoplay>
-                    <source src="assets/videos/v1.mp4" type="video/mp4">
-                    Votre navigateur ne supporte pas la lecture de vidéos.
-                </video>
-                <div class="carousel-controls">
-                    <button class="prev">&#10094;</button>
-                    <div class="thumbnails">
-                        <div class="thumbnail-container">
-                            <img src="assets/images/thumbnail1.jpg" data-video="assets/videos/v1.mp4" alt="Vidéo 1"
-                                class="active">
-                            <div class="video-title">17/05/2024 - Jeudi du pressoire</div>
-                        </div>
-                        <div class="thumbnail-container">
-                            <img src="assets/images/thumbnail2.jpg" data-video="assets/videos/v2.mov" alt="Vidéo 2">
-                            <div class="video-title">17/05/2024 - Jeudi du pressoire</div>
-                        </div>
-                        <div class="thumbnail-container">
-                            <img src="assets/images/thumbnail3.jpg" data-video="assets/videos/v3.mp4" alt="Vidéo 3">
-                            <div class="video-title">17/05/2024 - Jeudi du pressoire</div>
-                        </div>
-                        <div class="thumbnail-container">
-                            <img src="assets/images/thumbnail4.jpg" data-video="assets/videos/v4.mp4" alt="Vidéo 4">
-                            <div class="video-title">17/05/2024 - Jeudi du pressoire</div>
-                        </div>
-                        <div class="thumbnail-container">
-                            <img src="assets/images/thumbnail6.jpg" data-video="assets/videos/v6.mp4" alt="Vidéo 6">
-                            <div class="video-title">17/05/2024 - Jeudi du pressoire</div>
-                        </div>
-                        <div class="thumbnail-container">
-                            <img src="assets/images/thumbnail7.jpg" data-video="assets/videos/v7.mp4" alt="Vidéo 7">
-                            <div class="video-title">17/05/2024 - Jeudi du pressoire</div>
-                        </div>
-                        <div class="thumbnail-container">
-                            <img src="assets/images/thumbnail8.jpg" data-video="assets/videos/v8.mp4" alt="Vidéo 8">
-                            <div class="video-title">17/05/2024 - Jeudi du pressoire</div>
-                        </div>
-                        <div class="thumbnail-container">
-                            <img src="assets/images/thumbnail9.jpg" data-video="assets/videos/v9.mp4" alt="Vidéo 9">
-                            <div class="video-title">17/05/2024 - Jeudi du pressoire</div>
-                        </div>
-                    </div>
-                    <button class="next">&#10095;</button>
-                </div>
-            </div>
+            <button class="next-v">&#10095;</button>
+          </div>
+        </div>
 
-            <div class="video-description">
-                <span>Retrouvez plus de vidéo sur notre chaine Youtube : </span>
-                <a class="youtube-link" href="https://www.youtube.com/@docmartine5133" target="_blank"
-                    rel="noopener noreferrer">
-                    <i class="fab fa-youtube"></i>
-                    <span class="youtube-text">Doc Martine</span>
-                </a>
-            </div>
+        <div class="video-description">
+          <span>Retrouvez plus de vidéo sur notre chaine Youtube : </span>
+          <a
+            class="youtube-link"
+            href="https://www.youtube.com/@docmartine5133"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-youtube"></i>
+            <span class="youtube-text">Doc Martine</span>
+          </a>
+        </div>
 
-            <script>
+        <script></script>
+      </section>
 
-            </script>
-        </section>
-
-        <section class="section" id="contact">
-            <div class="contact-container">
-                <h2 class="stylized-title">Nous Contacter</h2>
-                <p>Pour mettre le feu à votre prochaine soirée !!</p>
-                <form id="contact-form" class="contact-form" action="https://formspree.io/f/xeerapop" method="POST">
-                    <input type="text" name="name" placeholder="Votre nom" required>
-                    <input type="email" name="email" placeholder="Votre email" required>
-                    <textarea name="message" placeholder="Votre message" required></textarea>
-                    <button type="submit" class="button-56">Envoyer</button>
-                </form>
-            </div>
-        </section>
+      <section class="section" id="contact">
+        <div class="contact-container">
+          <h2 class="stylized-title reveal">Nous Contacter</h2>
+          <p class="reveal">Pour mettre le feu à votre prochaine soirée !!</p>
+          <form
+            id="contact-form"
+            class="contact-form reveal"
+            action="https://formspree.io/f/xeerapop"
+            method="POST"
+          >
+            <input type="text" name="name" placeholder="Votre nom" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Votre email"
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Votre message"
+              required
+            ></textarea>
+            <button type="submit" class="button-56">Envoyer</button>
+          </form>
+        </div>
+      </section>
     </main>
 
     <footer>
-        <p>1995 - 2025 Doc Martine.</p>
+      <p>1995 - 2026 Doc Martine.</p>
     </footer>
-</body>
+  </body>
 
-<script src="js/script.js"></script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "MusicGroup",
-  "name": "Doc Martine",
-  "genre": ["Rock", "Funk", "Festif"],
-  "foundingLocation": "Billom, France",
-  "member": [
-    {"@type": "Person", "name": "Thierry Soustre"},
-    {"@type": "Person", "name": "Pierre Lisze"},
-    {"@type": "Person", "name": "Berny Chanonat"},
-    {"@type": "Person", "name": "Katy Soustre"},
-    {"@type": "Person", "name": "Florine Dulieux"},
-    {"@type": "Person", "name": "Jean Pierre Scherma"}
-  ],
-  "url": "https://www.docmartine.fr",
-  "sameAs": [
-    "https://www.youtube.com/@docmartine5133"
-  ]
-}
-</script>
-
+  <script src="js/script.js"></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MusicGroup",
+      "name": "Doc Martine",
+      "genre": ["Rock", "Funk", "Festif"],
+      "foundingLocation": "Billom, France",
+      "member": [
+        { "@type": "Person", "name": "Thierry Soustre" },
+        { "@type": "Person", "name": "Pierre Lisze" },
+        { "@type": "Person", "name": "Berny Chanonat" },
+        { "@type": "Person", "name": "Katy Soustre" },
+        { "@type": "Person", "name": "Florine Dulieux" },
+        { "@type": "Person", "name": "Jean Pierre Scherma" }
+      ],
+      "url": "https://www.docmartine.fr",
+      "sameAs": ["https://www.youtube.com/@docmartine5133"]
+    }
+  </script>
 </html>
